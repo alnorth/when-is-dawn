@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -1em;
+}
+
+#footer, .push {
+	height: 1em;
+}
+
+body {
+	background-color: black;
+	font-family: georgia;
+}
+div#dawn, div#about {
+	padding-top: 20%;
+	color: white;
+}
+
+div#dawn {
+	text-align: center;
+	font-weight: bold;
+	font-size: 400%;
+}
+
+span.timezone {
+	font-size: 50%;
+}
+
+div#about {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#footer {
+	text-align: center;
+	color: white;
+	font-size: x-small;
+}
+
+div#footer a {
+	color: white;
+	text-decoration: none;
+}
+
+div#footer a:hover {
+	text-decoration: underline;
+}
