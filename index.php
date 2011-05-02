@@ -2,13 +2,44 @@
 include_once 'hidden/hostipinfo.php';
 require_once 'Services/GeoNames.php';
 
-$ipinfo = hostip_get_info('213.81.89.155' /*$_SERVER['REMOTE_ADDR']*/);
-$geo = new Services_GeoNames();
-$tzinfo = $geo->timezone(array('username' => 'alnorth29', 'lat' => $ipinfo['latitude'], 'lng' => $ipinfo['longitude']));
-var_dump($tzinfo);
+function getTimeForZenith($zenith) {
+	$ipinfo = hostip_get_info('213.81.89.155' /*$_SERVER['REMOTE_ADDR']*/);
+	$lat = $ipinfo['latitude'];
+	$lng = $ipinfo['longitude'];
+	
+	$geo = new Services_GeoNames();
+	$tzinfo = $geo->timezone(array('username' => 'alnorth29', 'lat' => $lat, 'lng' => $lng));
+	
+	$now = new DateTime();
+	$tz = timezone_open($tzinfo->timezoneId);
+	$offsetInSeconds = $tz->getOffset($now);
+	$offsetInHours = $offsetInSeconds / 3600;
+	
+	$timeAtZenith = "";
+	if($zenith < 0) {
+		$timeAtZenith = date_sunrise($now->getTimestamp(), SUNFUNCS_RET_STRING, $lat, $lng, $zenith, $offsetInHours);
+	} else {
+		$timeAtZenith = date_sunset($now->getTimestamp(), SUNFUNCS_RET_STRING, $lat, $lng, $zenith, $offsetInHours);
+	}
+	
+	if($timeAtZenith != "") {
+		return formatTime($timeAtZenith, 'GMT');
+	} else {
+		return 'I don\'t know :(';
+	}
+}
 
-$tz = timezone_open($tzinfo->timezoneId);
-print $tz->getOffset(new DateTime());
+function formatTime($time, $tzAbbr) {
+	return '<span class="time">'. $time .'</span><span class="timezone">'. $tzAbbr .'</span>';
+}
+
+function getCivilDawnTime() {
+	return getTimeForZenith(-96);
+}
+
+function getCivilDuskTime() {
+	return getTimeForZenith(96);
+}
 
 ?>
 <!DOCTYPE html>
@@ -21,11 +52,8 @@ print $tz->getOffset(new DateTime());
 	<body>
 		<div class="wrapper">
 			<div id="dawn">
-				<span class="time">9:41</span>
-				<span class="ampm">am</span>
-				<span class="timezone">BST</span>
+				<?php echo getCivilDawnTime(); ?>
 			</div>
-			<?php  ?>
 			<div class="push"></div>
 		</div>
 		<div id="footer">
