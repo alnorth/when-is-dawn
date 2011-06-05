@@ -63,7 +63,7 @@ function getCivilDuskTime() {
 			<div class="push"></div>
 		</div>
 		<div id="footer">
-			by <a href="http://www.twitter.com/alasdairnorth">@alasdairnorth</a> | <a href="about.php">about</a>
+			by <a href="http://www.twitter.com/alasdairnorth">@alasdairnorth</a> | <a href="about.php">about</a> | <a href="http://software.alnorth.com/">other projects</a>
 		</div>
 	</body>
 </html>
