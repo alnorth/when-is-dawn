@@ -5,27 +5,29 @@ require_once 'Services/GeoNames.php';
 function getTimeForZenith($zenith) {
 	$returnValue = "";
 	$ipinfo = hostip_get_info($_SERVER['REMOTE_ADDR']);
-	$lat = $ipinfo['latitude'];
-	$lng = $ipinfo['longitude'];
-	
-	$geo = new Services_GeoNames();
-	$tzinfo = $geo->timezone(array('username' => 'alnorth29', 'lat' => $lat, 'lng' => $lng));
-	
-	if(property_exists($tzinfo, "timezoneId")) {
-		$now = new DateTime();
-		$tz = timezone_open($tzinfo->timezoneId);
-		$offsetInSeconds = $tz->getOffset($now);
-		$offsetInHours = $offsetInSeconds / 3600;
-		
-		$timeAtZenith = "";
-		if($zenith < 0) {
-			$timeAtZenith = date_sunrise($now->getTimestamp(), SUNFUNCS_RET_STRING, $lat, $lng, $zenith, $offsetInHours);
-		} else {
-			$timeAtZenith = date_sunset($now->getTimestamp(), SUNFUNCS_RET_STRING, $lat, $lng, $zenith, $offsetInHours);
-		}
-		
-		if($timeAtZenith != "") {
-			$returnValue = formatTime($timeAtZenith, 'GMT');
+	if($ipinfo) {
+		$lat = $ipinfo['latitude'];
+		$lng = $ipinfo['longitude'];
+
+		$geo = new Services_GeoNames();
+		$tzinfo = $geo->timezone(array('username' => 'alnorth29', 'lat' => $lat, 'lng' => $lng));
+
+		if(property_exists($tzinfo, "timezoneId")) {
+			$now = new DateTime();
+			$tz = timezone_open($tzinfo->timezoneId);
+			$offsetInSeconds = $tz->getOffset($now);
+			$offsetInHours = $offsetInSeconds / 3600;
+			
+			$timeAtZenith = "";
+			if($zenith < 0) {
+				$timeAtZenith = date_sunrise($now->getTimestamp(), SUNFUNCS_RET_STRING, $lat, $lng, $zenith, $offsetInHours);
+			} else {
+				$timeAtZenith = date_sunset($now->getTimestamp(), SUNFUNCS_RET_STRING, $lat, $lng, $zenith, $offsetInHours);
+			}
+			
+			if($timeAtZenith != "") {
+				$returnValue = formatTime($timeAtZenith, 'GMT');
+			}
 		}
 	}
 	if($returnValue != "") {
