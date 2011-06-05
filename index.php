@@ -4,7 +4,7 @@ require_once 'Services/GeoNames.php';
 
 function getTimeForZenith($zenith) {
 	$returnValue = "";
-	$ipinfo = hostip_get_info('213.81.89.155' /*$_SERVER['REMOTE_ADDR']*/);
+	$ipinfo = hostip_get_info($_SERVER['REMOTE_ADDR']);
 	$lat = $ipinfo['latitude'];
 	$lng = $ipinfo['longitude'];
 	
