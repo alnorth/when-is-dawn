@@ -58,7 +58,7 @@ function getCivilDuskTime() {
 	<body>
 		<div class="wrapper">
 			<div id="dawn">
-				<?php echo getCivilDawnTime(); ?>
+				<div><?php echo getCivilDawnTime(); ?></div>
 			</div>
 			<div class="push"></div>
 		</div>
