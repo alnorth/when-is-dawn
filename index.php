@@ -26,7 +26,7 @@ function getTimeForZenith($zenith) {
 			}
 			
 			if($timeAtZenith != "") {
-				$returnValue = formatTime($timeAtZenith, 'GMT');
+				$returnValue = formatTime($timeAtZenith, getTimezoneAbbr($tzinfo->timezoneId));
 			}
 		}
 	}
@@ -35,6 +35,13 @@ function getTimeForZenith($zenith) {
 	} else {
 		return 'I don\'t know :(';
 	}
+}
+
+function getTimezoneAbbr($timezoneId) {
+	// From http://www.ilovebonnie.net/2008/08/06/time-zone-abbreviation-difficulties-with-php/
+	$dateTime = new DateTime('now');
+	$dateTime->setTimeZone(new DateTimeZone($timezoneId));
+	return $dateTime->format('T');
 }
 
 function formatTime($time, $tzAbbr) {
