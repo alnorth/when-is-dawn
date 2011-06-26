@@ -30,7 +30,7 @@
 	<body>
 		<div class="wrapper">
 			<div id="dawn">
-				<div>Loading...</div>
+				<div><img src="ajax-loader.gif" /></div>
 			</div>
 			<div class="push"></div>
 		</div>
