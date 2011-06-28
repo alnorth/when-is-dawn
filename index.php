@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<title>When is Dawn?</title>
+		<meta name="description" content="whenisdawn.com tells you when dawn is wherever you are." />
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<?php include('hidden/ga.php'); ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
