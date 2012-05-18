@@ -9,6 +9,7 @@
 		<?php include('hidden/ga.php'); ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 		<script type="text/javascript">
+
 			function getDawnTime(position) {
 				var posData = {};
 				if(position) {
@@ -17,10 +18,22 @@
 				}
 				$.get("dawn.php", posData, function(data) {
 					$("div#dawn div").html(data);
+					$(window).resize();
 				});
 			}
 			
 			$(document).ready(function() {
+				$(window).resize(function(){
+					$("div#dawn div").css({
+						position:"absolute",
+						left: ($(window).width() - $("div#dawn div").outerWidth())/2,
+						top: ($(window).height() - $("div#dawn div").outerHeight())/2
+					});
+				});
+
+				// To initially run the function:
+				$(window).resize();
+
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(getDawnTime, function(error){getDawnTime();});
 				} else {

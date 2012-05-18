@@ -30,7 +30,6 @@ body {
 }
 
 div#dawn, div#about {
-	padding-top: 20%;
 	color: white;
 }
 
@@ -38,8 +37,6 @@ div#dawn div, div#about div {
 	background: rgb(0, 0, 0);
 	background: rgba(0, 0, 0, 0.5);
 	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
 	padding: 20px;
 	border-radius: 10px;
 }
@@ -92,7 +89,7 @@ div#footer a:hover {
 
 	div#dawn div, div#about div {
 		width: 250px;
-		padding: 15px;
+		padding: 10px;
 	}
 
 	div#dawn {
