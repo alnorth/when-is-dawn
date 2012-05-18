@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>When is Dawn?</title>
+		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<?php include('hidden/ga.php'); ?>
 	</head>
