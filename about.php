@@ -12,6 +12,7 @@
 				<div>
 					<p>This website tells you when the 'crack of dawn' is wherever you are.</p>
 					<p>If it's not right (and for some reason you're really concerned about that) then contact me on twitter to let me know.</p>
+					<p><small><a href="http://www.flickr.com/photos/atomdocs/3275758118">Photo from Tom BKK on Flickr.</a></small></p>
 				</div>
 			</div>
 			<div class="push"></div>

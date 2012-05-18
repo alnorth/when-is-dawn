@@ -54,6 +54,14 @@ div#about p {
 	margin-bottom: 5px;
 }
 
+div#about a {
+	color: white;
+}
+
+div#about small {
+	font-size: 60%;
+}
+
 span.timezone {
 	font-size: 50%;
 	margin-left: 20px;
