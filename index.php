@@ -4,6 +4,7 @@
 	<head>
 		<title>When is Dawn?</title>
 		<meta name="description" content="whenisdawn.com tells you when dawn is wherever you are." />
+		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="style.css" type="text/css" />
 		<?php include('hidden/ga.php'); ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
@@ -36,7 +37,7 @@
 			<div class="push"></div>
 		</div>
 		<div id="footer">
-			by <a href="http://www.twitter.com/alasdairnorth">@alasdairnorth</a> | <a href="about.php">about</a> | <a href="http://software.alnorth.com/">other projects</a>
+			&copy; 2011-2012 <a href="http://www.twitter.com/alasdairnorth">@alasdairnorth</a> | <a href="about.php">about</a> | <a href="http://software.alnorth.com/">other projects</a>
 		</div>
 	</body>
 </html>

@@ -6,6 +6,14 @@ html, body {
 	height: 100%;
 }
 
+html {
+	background: url(bg-large.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 .wrapper {
 	min-height: 100%;
 	height: auto !important;
@@ -18,7 +26,6 @@ html, body {
 }
 
 body {
-	background-color: #0099CC;
 	font-family: georgia;
 }
 div#dawn, div#about {
@@ -27,7 +34,8 @@ div#dawn, div#about {
 }
 
 div#dawn div, div#about div {
-	background-color: #004466;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5);
 	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
@@ -63,4 +71,27 @@ div#footer a {
 
 div#footer a:hover {
 	text-decoration: underline;
+}
+
+@media only screen and (max-width : 768px) {
+	html {
+		background-image: url(bg-medium.jpg);
+	}
+}
+
+@media only screen and (max-width : 480px) {
+	html {
+		background-image: url(bg-small.jpg);
+	}
+
+	div#dawn div, div#about div {
+		width: 280px;
+		padding: 15px;
+	}
+
+	div#dawn {
+		text-align: center;
+		font-weight: bold;
+		font-size: 300%;
+	}
 }
