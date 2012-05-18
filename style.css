@@ -28,6 +28,7 @@ html {
 body {
 	font-family: georgia;
 }
+
 div#dawn, div#about {
 	padding-top: 20%;
 	color: white;
@@ -80,12 +81,9 @@ div#footer a:hover {
 }
 
 @media only screen and (max-width : 480px) {
-	html {
-		background-image: url(bg-small.jpg);
-	}
 
 	div#dawn div, div#about div {
-		width: 280px;
+		width: 250px;
 		padding: 15px;
 	}
 
