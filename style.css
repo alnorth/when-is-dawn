@@ -29,33 +29,30 @@ body {
 	font-family: georgia;
 }
 
-div#dawn, div#about {
+div#dawn {
 	color: white;
-}
-
-div#dawn div, div#about div {
-	background: rgb(0, 0, 0);
-	background: rgba(0, 0, 0, 0.5);
 	width: 400px;
 	padding: 20px;
 	border-radius: 10px;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5);
 }
 
-div#dawn {
+div#dawnText {
 	text-align: center;
 	font-weight: bold;
 	font-size: 400%;
 }
 
-div#about p {
+div#aboutText p {
 	margin-bottom: 5px;
 }
 
-div#about a {
+div#aboutText a {
 	color: white;
 }
 
-div#about small {
+div#aboutText small {
 	font-size: 60%;
 }
 
@@ -87,14 +84,12 @@ div#footer a:hover {
 
 @media only screen and (max-width : 480px) {
 
-	div#dawn div, div#about div {
+	div#dawn {
 		width: 250px;
 		padding: 10px;
 	}
 
-	div#dawn {
-		text-align: center;
-		font-weight: bold;
+	div#dawnText {
 		font-size: 300%;
 	}
 }

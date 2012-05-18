@@ -17,18 +17,24 @@
 					posData.lng = position.coords.longitude
 				}
 				$.get("dawn.php", posData, function(data) {
-					$("div#dawn div").html(data);
+					$("div#dawnText").html(data);
 					$(window).resize();
 				});
 			}
 			
 			$(document).ready(function() {
 				$(window).resize(function(){
-					$("div#dawn div").css({
+					$("div#dawn").css({
 						position:"absolute",
-						left: ($(window).width() - $("div#dawn div").outerWidth())/2,
-						top: ($(window).height() - $("div#dawn div").outerHeight())/2
+						left: ($(window).width() - $("div#dawn").outerWidth())/2,
+						top: ($(window).height() - $("div#dawn").outerHeight())/2
 					});
+				});
+
+				$("#aboutLink").click(function() {
+					$("#dawnText").toggle();
+					$("#aboutText").toggle();
+					$(window).resize();
 				});
 
 				// To initially run the function:
@@ -45,12 +51,17 @@
 	<body>
 		<div class="wrapper">
 			<div id="dawn">
-				<div><img src="ajax-loader.gif" /></div>
+				<div id="dawnText"><img src="ajax-loader.gif" /></div>
+				<div id="aboutText" style="display:none;">
+					<p>This website tells you when the 'crack of dawn' is wherever you are.</p>
+					<p>If it's not right (and for some reason you're really concerned about that) then contact me on twitter to let me know.</p>
+					<p><small><a href="http://www.flickr.com/photos/atomdocs/3275758118">Photo from Tom BKK on Flickr.</a></small></p>
+				</div>
 			</div>
 			<div class="push"></div>
 		</div>
 		<div id="footer">
-			&copy; 2011-2012 <a href="http://www.twitter.com/alasdairnorth">@alasdairnorth</a> | <a href="about.php">about</a> | <a href="http://software.alnorth.com/">other projects</a>
+			&copy; 2011-2012 <a href="http://www.twitter.com/alasdairnorth">@alasdairnorth</a> | <a id="aboutLink" href="javascript:void(0);">about</a> | <a href="http://software.alnorth.com/">other projects</a>
 		</div>
 	</body>
 </html>
