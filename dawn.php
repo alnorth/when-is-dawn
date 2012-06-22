@@ -27,7 +27,7 @@ function getTimeForZenith($zenith) {
 		$tzinfo = $geo->timezone(array('username' => 'alnorth29', 'lat' => $lat, 'lng' => $lng));
 
 		if(property_exists($tzinfo, "timezoneId")) {
-			$now = new DateTime();
+			$now = new DateTime("UTC");
 			$tz = timezone_open($tzinfo->timezoneId);
 			$offsetInSeconds = $tz->getOffset($now);
 			$offsetInHours = $offsetInSeconds / 3600;
@@ -53,7 +53,7 @@ function getTimeForZenith($zenith) {
 
 function getTimezoneAbbr($timezoneId) {
 	// From http://www.ilovebonnie.net/2008/08/06/time-zone-abbreviation-difficulties-with-php/
-	$dateTime = new DateTime('now');
+	$dateTime = new DateTime("UTC");
 	$dateTime->setTimeZone(new DateTimeZone($timezoneId));
 	return $dateTime->format('T');
 }
