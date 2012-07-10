@@ -8,4 +8,4 @@ This relies on the Geonames webservice and so depends on Services_GeoNames. You 
 
 ##License
 
-Unless otherwise stated in comments, files included in this extension are provided under the Modified BSD License as described in LICENSE.txt.
+Unless otherwise stated in comments, files included in this project are provided under the Modified BSD License as described in LICENSE.txt.
